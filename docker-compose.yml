@@ -4,7 +4,6 @@ services:
   db:
     image: postgres:15
     platform: linux/arm64
-
     restart: always
     environment:
       POSTGRES_DB: todo
@@ -32,10 +31,12 @@ services:
       NEXT_PUBLIC_API_BASE: http://localhost:8000
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
     depends_on:
       - backend
+    command: sh -c "npm install && npm run dev -- -H 0.0.0.0"
 
 volumes:
   db_data:
