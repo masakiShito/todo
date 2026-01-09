@@ -10,6 +10,8 @@ cp .env.example .env
 docker-compose up --build
 ```
 
+- Appleシリコン（M1/M2/M3）環境では `docker-compose.yml` に `platform: linux/arm64` を指定済みです。
+
 - Web UI: http://localhost:3000
 - API docs: http://localhost:8000/docs
 - API health: http://localhost:8000/health
